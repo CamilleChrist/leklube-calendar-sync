@@ -25,7 +25,7 @@ $verbose = in_array('--verbose', $argv, true) || in_array('-v', $argv, true);
 
 if (in_array('--help', $argv, true) || in_array('-h', $argv, true)) {
     echo <<<TXT
-    Usage : php bin/leklube-sync [options]
+    Usage : php bin/leklube-sync.php [options]
 
       (aucune option)  Synchronise les séances réservées vers Google Agenda
       --dry-run        Affiche les actions sans rien écrire dans l'agenda
@@ -54,7 +54,7 @@ try {
     if ($reservations === []) {
         $logger->warning(
             "Aucune séance réservée détectée. Si tu en as pourtant dans l'application, relance "
-            . "`php bin/leklube-sync --list` pour afficher la liste détectée, ou vérifie le README."
+            . "`php bin/leklube-sync.php --list` pour afficher la liste détectée, ou vérifie le README."
         );
         exit(0);
     }

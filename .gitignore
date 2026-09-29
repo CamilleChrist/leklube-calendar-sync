@@ -17,3 +17,6 @@ logs/
 
 # JetBrains
 .idea/
+
+# PHPUnit
+.phpunit.result.cache

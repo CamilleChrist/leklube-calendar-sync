@@ -89,6 +89,8 @@ disparu ou a été annulée est supprimé de l'agenda. Les séances passées res
 composer install
 ```
 
+Sur le serveur, `composer install --no-dev` évite d'installer PHPUnit, qui ne sert qu'aux tests.
+
 ### 3. Configuration Le Klube
 
 Copie `.env.example` vers `.env` et renseigne tes identifiants :
@@ -207,14 +209,16 @@ Les messages passent par [Monolog](https://github.com/Seldaek/monolog), une lign
 Les erreurs sortent sur **stderr**, tout le reste sur **stdout** : dans un cron, `>> sync.log 2>&1`
 garde tout dans un même fichier.
 
-### Vérifier que le code marche encore
+### Lancer les tests
 
 ```bash
-php tests/smoke.php
+vendor/bin/phpunit
 ```
 
-Rejoue l'extraction et la conversion en événement sur un jeu de réservations figé, sans réseau.
-Utile après avoir touché à `ReservationExtractor` ou `GoogleCalendarSync`.
+Les tests [PHPUnit](https://phpunit.de/) rejouent l'extraction des séances, leur conversion en événements
+et le choix des suppressions sur des réservations figées, sans réseau ni appel à Google. Utile après
+avoir touché à `ReservationExtractor` ou `GoogleCalendarSync`. Ajoute `--testdox` pour lister chaque
+test par son nom.
 
 ---
 
