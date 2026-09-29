@@ -1,0 +1,19 @@
+# Composer
+/vendor/
+composer.lock
+
+# Google
+credentials.json
+token.json
+
+# Secrets
+.env
+
+# macOS
+.DS_Store
+
+# Logs
+logs/
+
+# JetBrains
+.idea/

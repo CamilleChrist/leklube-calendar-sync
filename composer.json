@@ -1,0 +1,29 @@
+{
+    "name": "leklube/leklube-synch",
+    "description": "Synchronise automatiquement les séances de sport Le Klube avec Google Calendar",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.5",
+        "google/apiclient": "^2.0",
+        "guzzlehttp/guzzle": "^7.8",
+        "vlucas/phpdotenv": "^5.6",
+        "monolog/monolog": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "LeKlube\\": "src/"
+        }
+    },
+    "bin": [
+        "bin/leklube-sync"
+    ],
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Calendar"
+        ]
+    }
+}
